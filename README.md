@@ -1,8 +1,3 @@
-Here’s a **README.md** file for your **SnapQuest** project:
-
----
-
-### **`README.md` - SnapQuest 📸🔍**
 # SnapQuest: A Location-Based Picture Hunt Game
 
 **SnapQuest** is an interactive **SMS-based scavenger hunt game** where players receive location-based riddles, find real-world locations, and submit photos for verification. Built with **FastAPI, MySQL, Twilio, and AI-powered riddle generation**, SnapQuest makes real-world exploration fun and competitive.
