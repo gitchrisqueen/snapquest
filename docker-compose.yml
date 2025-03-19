@@ -1,0 +1,37 @@
+services:
+  app:
+    build: .
+    container_name: game_backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql_db
+    environment:
+        DATABASE_URL: "mysql+mysqlconnector://root:password@mysql_db/game_db"
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app/src
+      - ./alembic:/app/alembic
+
+  mysql_db:
+    image: mysql:8.0
+    container_name: game_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: game_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    container_name: mysql_adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+volumes:
+  mysql_data:
